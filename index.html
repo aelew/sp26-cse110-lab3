@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Team Sync #1</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Meeting minutes for Team Sync #1" />
+    <meta name="author" content="Andre Lew" />
+    <link rel="shortcut icon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Team Sync #1</h1>
+
+      <div>
+        <h2>Meeting type: Check-in</h2>
+        <h3>Date: <span>April 12, 2026 10:00 AM &ndash; 10:30 AM</span></h3>
+      </div>
+
+      <div>
+        <h2>Table of Contents</h2>
+        <nav>
+          <ul>
+            <li><a href="#attendance">Attendance</a></li>
+            <li>
+              <a href="#unfinished-business">Unfinished business</a>
+            </li>
+            <li><a href="#agenda">Today&apos;s agenda</a></li>
+            <li><a href="#minutes">Meeting minutes</a></li>
+            <li><a href="#recordings">Meeting recordings</a></li>
+            <li><a href="#rsvp">RSVP for next meeting</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <hr />
+
+    <main>
+      <section id="attendance">
+        <h2>Attendance</h2>
+        <ul>
+          <li>Andre Lew</li>
+          <li>Thomas Powell</li>
+          <li>Johnny Appleseed</li>
+          <li>Jane Doe</li>
+        </ul>
+      </section>
+
+      <section id="unfinished-business">
+        <h2>Unfinished business</h2>
+        <p>
+          First team sync, no unfinished business from <b>last</b> meeting! :D
+        </p>
+      </section>
+
+      <section id="agenda">
+        <h2>Today&apos;s agenda</h2>
+        <ul>
+          <li>Introduction</li>
+          <li>Discussion</li>
+          <li>Conclusion</li>
+        </ul>
+      </section>
+
+      <section id="minutes">
+        <h2>Meeting minutes</h2>
+        <section>
+          <h3>Introduction</h3>
+          <p>Introduction to the meeting</p>
+        </section>
+        <section>
+          <h3>Discussion</h3>
+          <p>Discussion of the meeting</p>
+          <ol>
+            <li>Topic 1</li>
+            <li>Topic 2</li>
+            <li>Topic 3</li>
+          </ol>
+          <img
+            alt="whiteboard diagram from the meeting"
+            src="diagram.png"
+            width="500"
+          />
+        </section>
+        <section>
+          <h3>New business</h3>
+          <ul>
+            <li>Decide on a project tech stack</li>
+            <li>Set up a shared GitHub organization</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Conclusion</h3>
+          <p>
+            Conclusion of the meeting. Next meeting will be
+            <strong>April 19th at 10:00 AM</strong>!
+          </p>
+          <details>
+            <summary>Comments, questions &amp; concerns</summary>
+            <p>No additional comments were raised during this meeting.</p>
+          </details>
+        </section>
+      </section>
+
+      <section id="recordings">
+        <h2>Meeting recordings</h2>
+        <div>
+          <audio controls src="audio.mp3">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div>
+          <video controls src="video.mp4">
+            Your browser does not support the video element.
+          </video>
+        </div>
+      </section>
+
+      <section id="rsvp">
+        <h2>RSVP for next meeting</h2>
+        <form method="POST">
+          <fieldset>
+            <legend>Fill out the information below to RSVP!</legend>
+
+            <label>Name: <input type="text" name="name" required /></label>
+
+            <br />
+            <br />
+
+            <label>
+              Preferred date:
+              <input type="date" name="date" required />
+            </label>
+
+            <br />
+            <br />
+
+            <label>
+              Preferred language:
+              <input list="languages" name="language" required />
+              <datalist id="languages">
+                <option value="JavaScript/TypeScript" />
+                <option value="Python" />
+                <option value="Java" />
+                <option value="C#" />
+              </datalist>
+            </label>
+
+            <br />
+            <br />
+
+            <label>
+              Role:
+              <select name="role" required>
+                <option value="developer">Developer</option>
+                <option value="designer">Designer</option>
+                <option value="project_manager">Project Manager</option>
+              </select>
+            </label>
+
+            <br />
+
+            <p>Will you be able to attend this meeting?</p>
+            <label>
+              <input type="radio" name="attend" value="yes" required />
+              Yes
+            </label>
+            <label>
+              <input type="radio" name="attend" value="no" required />
+              No
+            </label>
+
+            <br />
+
+            <p>What topics do you care about?</p>
+            <label>
+              <input type="checkbox" name="topic" value="frontend" />
+              Frontend
+            </label>
+            <label>
+              <input type="checkbox" name="topic" value="backend" />
+              Backend
+            </label>
+            <label>
+              <input type="checkbox" name="topic" value="design" />
+              Design
+            </label>
+
+            <br />
+            <br />
+
+            <label>
+              Additional comments:
+              <br />
+              <textarea name="comments" rows="3"></textarea>
+            </label>
+
+            <br />
+            <br />
+
+            <button type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2026 <em>Andre Lew</em>. <i>All rights reserved.</i></p>
+    </footer>
+  </body>
+</html>
