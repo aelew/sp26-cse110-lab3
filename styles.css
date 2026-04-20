@@ -1,0 +1,346 @@
+/* css variables with fallbacks + colors in hex, rgb, hsl, named, color() wider-gamut, and color-mix() */
+:root {
+  --primary-color: #2c3e50; /* hex */
+  --accent: var(--primary-color, navy); /* variable with named fallback */
+  --surface: rgb(248, 250, 252); /* rgb */
+  --ink: hsl(215, 25%, 18%); /* hsl */
+  --muted: slategray; /* named color */
+  --highlight: color(display-p3 0.96 0.82 0.25); /* wider-gamut color() */
+  --soft-accent: color-mix(in srgb, var(--accent) 15%, white); /* color-mix() */
+  --danger: #e74c3c;
+}
+
+/* universal selector: normalize box sizing + inherit font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  padding-inline-start: 1rem;
+}
+
+/* element selectors */
+html {
+  font-size: 16px; /* absolute: px */
+  scroll-behavior: smooth;
+  scroll-padding-top: 330px;
+}
+
+body {
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--soft-accent), var(--surface));
+  line-height: 1.6;
+  min-height: 100vh; /* relative: vw/vh-family */
+  padding: 1.5rem; /* relative: rem */
+}
+
+/* selector list */
+h1,
+h2,
+h3 {
+  color: var(--accent);
+  letter-spacing: 0.3pt; /* absolute: pt */
+
+  font-family: 'Google Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'GRAD' 0;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: 2.25rem;
+  text-align: center;
+  /* longhand margin */
+  margin-top: 0.5rem;
+  margin-right: 0;
+  margin-bottom: 0.25rem;
+  margin-left: 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75em; /* relative: em */
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: var(--primary-color);
+}
+
+p {
+  margin: 0.5rem 0; /* shorthand margin */
+}
+
+/* pseudo-class on element */
+p:hover {
+  color: color-mix(in srgb, var(--accent) 80%, black);
+}
+
+/* adjacent sibling: the first p directly after an h2 */
+h2 + p {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* general sibling: any p that follows an h2 */
+h2 ~ p {
+  text-align: left;
+}
+
+/* class selector */
+.card {
+  background: white;
+  border-radius: 12px;
+  /* longhand padding */
+  padding-top: 1.25rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  /* longhand border */
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--accent) 20%, white);
+  border-width: 1px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(44, 62, 80, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+/* id selector — main heading container */
+#attendance {
+  border-left: 4px solid var(--highlight); /* shorthand border */
+}
+
+/* descendant combinator: any section inside main */
+main section {
+  padding: 1rem 1.25rem; /* shorthand padding */
+  margin: 1rem auto; /* shorthand w/ auto centering */
+  max-width: 60rem;
+  min-width: 18rem;
+  width: 92%; /* relative: % */
+  background: white;
+  border: 1px solid color-mix(in srgb, var(--accent) 15%, white); /* shorthand border */
+  border-radius: 10px;
+}
+
+/* child combinator: direct div children of header */
+header > div {
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+/* :has() — highlight sections that actually contain subsections */
+section:has(h3) {
+  background: color-mix(in srgb, var(--soft-accent) 50%, white);
+}
+
+/* nested selector with & */
+nav {
+  & ul {
+    display: flex; /* flexbox */
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0.75rem;
+    padding-top: 0;
+  }
+
+  & li {
+    display: inline-block;
+  }
+
+  & a {
+    display: inline-block;
+    text-decoration: none; /* text */
+    color: white;
+    background: var(--accent);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    transition:
+      transform 120ms ease,
+      background 120ms ease;
+  }
+
+  & a:hover {
+    background: color-mix(in srgb, var(--accent) 80%, black);
+    transform: translateY(-1px);
+  }
+
+  & a:active {
+    /* :active pseudo-class */
+    transform: translateY(1px);
+    background: var(--danger);
+  }
+}
+
+/* combining two selectors on the same element */
+a.active {
+  text-decoration: underline;
+  color: var(--highlight);
+}
+
+/* attribute selector */
+input[type='text'] {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  font: inherit;
+}
+
+/* header is sticky so the TOC stays visible */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, white 50%, transparent);
+  backdrop-filter: blur(8px);
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(44, 62, 80, 0.08);
+}
+
+/* grid on a container with 3+ children: attendance list */
+#attendance ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(40px, auto);
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+#attendance li {
+  background: var(--soft-accent);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, white);
+}
+
+/* recordings row uses flexbox with 3+ properties */
+#recordings {
+  display: block;
+}
+
+#recordings > div {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+/* form styling */
+form fieldset {
+  border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+
+form legend {
+  padding: 0 0.5rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  min-width: 10rem;
+  max-width: 100%;
+  height: 5cm; /* absolute: cm */
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--muted);
+  font: inherit;
+  resize: vertical;
+}
+
+button[type='submit'] {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    transform 120ms ease;
+}
+
+button[type='submit']:hover {
+  background: color-mix(in srgb, var(--accent) 75%, black);
+}
+
+button[type='submit']:active {
+  transform: translateY(1px);
+  background: var(--danger);
+}
+
+/* sits at the end of the page */
+footer {
+  text-align: center;
+  color: var(--muted);
+  background-color: var(--soft-accent);
+  border-radius: 12px;
+  padding: 1rem 0.5rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* relative-positioned meeting date pill */
+header h3 span {
+  position: relative;
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  background: var(--highlight);
+  color: var(--ink);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  top: -2px;
+}
+
+/* hide the raw <hr> — we style sections with cards instead */
+hr {
+  display: none;
+}
+
+/* image sizing */
+img {
+  max-width: 100%;
+  min-width: 120px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--muted);
+}
+
+/* media query: reflow to single column on narrow screens */
+@media (max-width: 768px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  #attendance ul {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    gap: 0.5rem;
+  }
+
+  main section {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+}

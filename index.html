@@ -7,6 +7,23 @@
     <meta name="description" content="Meeting minutes for Team Sync #1" />
     <meta name="author" content="Andre Lew" />
     <link rel="shortcut icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Google+Sans:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* small page-level tweak kept inline as a <style> block */
+      main {
+        max-width: 70rem;
+        margin: 1rem auto;
+      }
+    </style>
   </head>
 
   <body>
@@ -15,7 +32,12 @@
 
       <div>
         <h2>Meeting type: Check-in</h2>
-        <h3>Date: <span>April 12, 2026 10:00 AM &ndash; 10:30 AM</span></h3>
+        <h3>
+          Date:
+          <span style="font-weight: 500; letter-spacing: 0.0125em">
+            April 12, 2026 10:00 AM &ndash; 10:30 AM
+          </span>
+        </h3>
       </div>
 
       <div>
@@ -64,11 +86,11 @@
 
       <section id="minutes">
         <h2>Meeting minutes</h2>
-        <section>
+        <section class="card">
           <h3>Introduction</h3>
           <p>Introduction to the meeting</p>
         </section>
-        <section>
+        <section class="card">
           <h3>Discussion</h3>
           <p>Discussion of the meeting</p>
           <ol>
@@ -82,14 +104,14 @@
             width="500"
           />
         </section>
-        <section>
+        <section class="card">
           <h3>New business</h3>
           <ul>
             <li>Decide on a project tech stack</li>
             <li>Set up a shared GitHub organization</li>
           </ul>
         </section>
-        <section>
+        <section class="card">
           <h3>Conclusion</h3>
           <p>
             Conclusion of the meeting. Next meeting will be
