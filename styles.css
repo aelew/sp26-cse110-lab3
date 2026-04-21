@@ -50,7 +50,6 @@ h3 {
   letter-spacing: 0.3pt; /* absolute: pt */
 
   font-family: 'Google Sans', sans-serif;
-  font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: 'GRAD' 0;
   letter-spacing: -0.025em;
@@ -114,7 +113,7 @@ h2 ~ p {
   margin-bottom: 1.25rem;
 }
 
-/* id selector — main heading container */
+/* id selector: main heading container */
 #attendance {
   border-left: 4px solid var(--highlight); /* shorthand border */
 }
@@ -137,7 +136,7 @@ header > div {
   padding: 0.5rem 1rem;
 }
 
-/* :has() — highlight sections that actually contain subsections */
+/* :has(): highlight sections that actually contain subsections */
 section:has(h3) {
   background: color-mix(in srgb, var(--soft-accent) 50%, white);
 }
@@ -307,7 +306,7 @@ header h3 span {
   top: -2px;
 }
 
-/* hide the raw <hr> — we style sections with cards instead */
+/* hide the raw <hr>: we style sections with cards instead */
 hr {
   display: none;
 }
